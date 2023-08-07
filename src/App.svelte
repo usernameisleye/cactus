@@ -1,13 +1,5 @@
-<script lang="ts">
-</script>
+<script lang="ts"></script>
 
-<main>
-  <h1>こんにちは</h1>
-</main>
+<main id="main-content"></main>
 
-<style>
-  h1 {
-    color: darkred;
-    text-align: center;
-  }
-</style>
+<style></style>
