@@ -1,4 +1,42 @@
+@font-face {
+  font-family: 'Supreme';
+  font-weight: 100 900;
+  font-display: block;
+  font-style: normal;
+  font-named-instance: 'Regular';
+  src: url('./assets/fonts/Supreme-Variable.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Supreme';
+  font-weight: 100 900;
+  font-display: block;
+  font-style: italic;
+  font-named-instance: 'Italic';
+  src: url('./assets/fonts/Supreme-VariableItalic.woff2') format('woff2');
+}
+
 :root{
+  --clr-main-bg: rgb(251, 250, 248);
+  --clr-text: rgb(0, 1, 5);
+  --clr-main-dim: rgb(229, 229, 228);
+
+  --clr-success: rgb(46, 204, 113);
+  --clr-success-dim: rgb(46, 204, 113, .3);
+  --clr-error: rgb(231, 76, 60);
+  --clr-error-dim: rgb(231, 76, 60, .3);
+  --clr-pending: rgb(155, 89, 182);
+  --clr-pending-dim: rgb(155, 89, 182, .3);
+  --clr-warning: rgb(241, 196, 15);
+  --clr-warning-dim: rgb(241, 196, 15, .3);
+  --clr-info: rgb(52, 152, 219);
+  --clr-info-dim: rgb(52, 152, 219, .3);
+}
+
+[data-theme="dark"] {
+  --clr-main-bg: rgb(19, 18, 19);
+  --clr-text: rgb(252, 253, 253);
+  --clr-main-dim: rgb(50, 50, 51);
 }
 
 *,
@@ -30,7 +68,10 @@ body {
 
 body {
   line-height: 1.5;
+  color: var(--clr-text);
+  background: var(--clr-main-bg);
   text-rendering: optimizeSpeed;
+  font-family: 'Supreme', sans-serif;
 }
 
 a:not([class]) {
