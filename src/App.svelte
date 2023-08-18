@@ -1,42 +1,28 @@
 <script lang="ts">
-    import { Button, Guides, Theme } from "./lib"
-    import { Info, MailQuestion } from "lucide-svelte"
-
-    let email: string
-    const types = ["success", "error", "wait", "info", "warn"]
+  import { GitFork } from "lucide-svelte"
+  import { Navbar, QRButton } from "./lib/components"
 </script>
 
 <main id="main-content">
-    <Theme />
-    <div class="toasts"></div>
+    <Navbar />
+    <header>
+        <h1>Create and Share QR Code Easily</h1>
+        <p>Transform any data into a scannable QR code. Generate QR codes for websites, texts, emails, and more. Enhance your sharing experience effortlessly.</p>
 
-    <section class="body">
-        <div class="btns">
-            {#each types as type, i}  
-                <Button {type} />
-            {/each}
-        </div>
-
-        <div class="tests">
-            <h2>Use Case</h2>
-
-            <div class="input">
-                <input 
-                    type="email"
-                    class="shared"
-                    bind:value={email}
-                    placeholder="Input test mail"
-                >
-                <button class="add-mail shared">
-                    <MailQuestion />
+        <div class="buttons">
+            <QRButton />
+            <a href="https://github.com/usernameisleye/cactus" target="_blank" rel="noreferrer noopener">
+                <button class="btn">
+                    <GitFork />
+                    <span>GitHub</span>
                 </button>
-                <button class="add-mail shared">
-                    <Info />
-                </button>
-            </div>
-
-            <Guides />
+            </a>
         </div>
+    </header>
+
+    <section class="use-cases">
+        <h2>Use Cases</h2>
+        <p>Explore the Versatility of QR Codes</p>
     </section>
 </main>
 
@@ -46,51 +32,59 @@
         outline: none;
         background: none;
     }
+    :global(h1, h2, h3) {
+        font-weight: 700;
+        line-height: normal;
+
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        background-image: linear-gradient(to right, var(--clr-neutral), var(--clr-neutral-100));
+    }
+    :global(p) {
+        color: var(--clr-neutral-200);
+    }
     main {
+        padding-inline: 2rem;
+    }
+    header {
+        margin-bottom: 8rem;
+        margin-top: 4rem;
+        margin-inline: auto;
+        text-align: center;
+        width: 70%;
+    }
+    header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+    }
+    header p {
+        margin-block: 1.5rem;
+    }
+    .buttons {
         display: flex;
-        min-height: 100svh;
-        align-items: center;
+        gap: 1rem;
         justify-content: center;
     }
-    .btns {
-        display: flex;
-        gap: 3rem;
-        margin-bottom: 2rem;
-    }
-    .input {
-        --radius: .5rem;
-        --padding: .75rem 1rem;
-        --background: rgb(251, 152, 82);
-        --background-dim: rgb(251, 152, 82, .3);
-
+    .btn {
         display: flex;
         gap: .5rem;
-        width: 100%;
-        align-items: center;
-    }
-    .shared {
-        color: var(--clr-text);
-        padding: var(--padding);
-        border-radius: var(--radius);
-    }
-    .input input {
-        flex-grow: 1;
-        margin-block: .5rem;
+        padding: 1rem;
+        min-width: 10rem;
+        border-radius: 5rem;
+        justify-content: center;
         border: 1px solid transparent;
-        background: var(--clr-main-dim);
+        background: var(--clr-primary-300);
     }
-    .input input:focus-within {
-        border-color: var(--background);
+    .btn:hover {
+        border-color: var(--clr-neutral-300);
     }
-    .input button {
-        background: var(--background-dim);
-        border: 1px solid var(--background);
+
+    .use-cases {
+        text-align: center;
     }
-    .input button:hover {
-        background: var(--background);
-    }
-    .tests h2 {
-        font-size: 1.5rem;
-        text-decoration: underline;
+    .use-cases h2 {
+        font-size: 2.5rem;
+        margin-bottom: .7rem;
     }
 </style>
