@@ -1,5 +1,5 @@
-<script>
-  import QrButton from "./QRButton.svelte"
+<script lang="ts">
+  import { QRButton } from "."
 </script>
 <nav>
     <img 
@@ -9,12 +9,14 @@
 
     <ul role="list">
         <li>
-            <a href=" ">
+            <a href=" " class="link">
                 Features
             </a>
         </li>
         <li>
-            <QrButton />
+            <a href="#qr-code">
+                <QRButton />
+            </a>
         </li>
     </ul>
 </nav>
@@ -23,7 +25,7 @@
     nav {
         display: flex;
         justify-content: space-between;
-        padding-block: 2rem;
+        padding: 2rem;
     }
     nav img {
         width: 8rem;
@@ -34,11 +36,11 @@
         gap: 2rem;
         align-items: center;
     }
-    nav a {
+    nav .link {
         position: relative;
         color: var(--clr-neutral-300);
     }
-    nav a::after {
+    nav .link::after {
         content: "";
         position: absolute;
         width: 0;
@@ -48,7 +50,12 @@
         transition: .25s ease-in-out;
         background: var(--clr-neutral-300);
     }
-    nav a:hover::after {
+    nav .link:hover::after {
         width: 100%;
+    }
+    @media (max-width: 768px) {
+        ul li:first-child {
+            display: none;
+        }
     }
 </style>

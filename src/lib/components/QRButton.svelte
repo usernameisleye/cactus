@@ -1,9 +1,7 @@
-<a href=" ">
-    <button aria-label="code" class="btn">
-        <img src="/qr-code.svg" alt="qr-code">
-        <span>Get QR Code</span>
-    </button>
-</a>
+<button aria-label="code" class="btn" on:click>
+    <img src="/icons/qr-code.svg" alt="qr-code">
+    <span>Get QR Code</span>
+</button>
 
 <style>
     .btn {
@@ -11,6 +9,7 @@
         gap: .5rem;
         padding: 1rem;
         min-width: 10rem;
+        width: max-content;
         border-radius: 5rem;
         justify-content: center;
         border: 1px solid transparent;
