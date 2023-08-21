@@ -5,6 +5,7 @@ import Footer from "./Footer.svelte"
 import QrCode from "./QRCode.svelte"
 import SideBar from "./SideBar.svelte"
 import QRButton from "./QRButton.svelte"
+import OptButton from "./OptButton.svelte"
 
 export {
     Size,
@@ -14,4 +15,5 @@ export {
     QrCode,
     SideBar,
     QRButton,
+    OptButton,
 }

@@ -3,7 +3,7 @@
     import { QRButton, Size } from "."
 
     const options: string[] = ["png", "jpg", "jpeg", "eps", "svg"]   
-    const sizes: string[] = ["100 x 100", "150 x 150", "200 x 200", "250 x 250", "300 x 300", "400 x 400"] 
+    const sizes: string[] = ["250 x 250", "300 x 300", "350 x 350", "400 x 400", "450 x 450", "500 x 500"] 
     let actv = 0 
 
     let size: string
@@ -23,6 +23,7 @@
         if(size === undefined) size = "100 x 100"
         bg = bg.substring(1)
         fore = fore.substring(1)
+        size = size.replace(/\s+/g, "")
 
         const all = { data, format, bg, fore, size }
         dispatch("generate", all)

@@ -1,12 +1,18 @@
 <script lang="ts">
-  import { QRUrl, generateQR } from "./lib/utils"
+  import { QRUrl } from "./lib/utils"
   import { GitFork } from "lucide-svelte"
   import { cases, options } from "./lib/constants"
   import { Block, Footer, Navbar, QRButton, QrCode, SideBar } from "./lib/components"
 
+  let src: string
   const getQR = async (e: CustomEvent) => {
-    const url = await QRUrl(e.detail)
-    return generateQR(url)
+    try {
+        const url = await QRUrl(e.detail)
+        src = url
+    }
+    catch(error) {
+        console.error(error.message)
+    }
   }
 </script>
 
@@ -57,7 +63,7 @@
 
         <div class="generate">
             <SideBar on:generate={getQR} />
-            <QrCode />
+            <QrCode {src} />
         </div>
     </section>
 

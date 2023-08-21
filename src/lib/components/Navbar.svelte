@@ -59,7 +59,7 @@
         width: 100%;
     }
     @media (max-width: 768px) {
-        ul li:first-child {
+        .link {
             display: none;
         }
     }
