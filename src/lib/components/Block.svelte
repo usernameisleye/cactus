@@ -2,10 +2,11 @@
     import type { BlockType } from "../types"
 
     export let content: BlockType
+    export let invert: boolean = false
     const { header, body, src } = content
 </script>
 
-<article class="block">
+<article class="block" class:invert>
     <div class="head">
         <h3>{header}</h3>
         <div class="wrap">
@@ -53,5 +54,13 @@
     }
     .block:hover .wrap {
         border-color: var(--clr-neutral-200);
+    }
+
+    .invert {
+        background: var(--clr-neutral-400);
+        border-color: var(--clr-primary-100);
+    }
+    .invert .wrap {
+        background: var(--clr-primary-200);
     }
 </style>

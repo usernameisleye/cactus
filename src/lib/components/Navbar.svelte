@@ -9,8 +9,13 @@
 
     <ul role="list">
         <li>
-            <a href=" " class="link">
-                Features
+            <a href="#use-cases" class="link">
+                Use cases
+            </a>
+        </li>
+        <li>
+            <a href="#customization" class="link">
+                Customization
             </a>
         </li>
         <li>
@@ -33,7 +38,7 @@
     }
     nav ul {
         display: flex;
-        gap: 2rem;
+        gap: 1rem;
         align-items: center;
     }
     nav .link {

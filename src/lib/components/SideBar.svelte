@@ -1,7 +1,6 @@
 <script lang="ts">
     import { createEventDispatcher } from "svelte"
-    import Size from "./Size.svelte"
-    import { QRButton } from "."
+    import { QRButton, Size } from "."
 
     const options: string[] = ["png", "jpg", "jpeg", "eps", "svg"]   
     const sizes: string[] = ["100 x 100", "150 x 150", "200 x 200", "250 x 250", "300 x 300", "400 x 400"] 
@@ -22,9 +21,17 @@
     const generate = () => {
         if(data === undefined || format === "") return
         if(size === undefined) size = "100 x 100"
+        bg = bg.substring(1)
+        fore = fore.substring(1)
 
-        const all = { data, format, bg, fore, size } 
+        const all = { data, format, bg, fore, size }
         dispatch("generate", all)
+
+        actv = 0
+        data = ""
+        format = ""
+        bg = "#FFFFFF"
+        fore = "#000000"
     }
 </script>
 
@@ -43,7 +50,7 @@
     <label for="bg">Background Color</label>
     <input id="bg" type="color" bind:value={bg}>
 
-    <label for="size">Size(in px)</label>
+    <p>Size(in px)</p>
     <div class="sizes">
         {#each sizes as size, indx}
             <Size {indx} {actv} {size} on:click={() => select(indx, size)}/>

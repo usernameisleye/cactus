@@ -1,11 +1,12 @@
 <script lang="ts">
-  import { cases } from "./lib/constants"
+  import { QRUrl, generateQR } from "./lib/utils"
   import { GitFork } from "lucide-svelte"
-  import Footer from "./lib/components/Footer.svelte"
-  import { Block, Navbar, QRButton, QrCode, SideBar } from "./lib/components"
+  import { cases, options } from "./lib/constants"
+  import { Block, Footer, Navbar, QRButton, QrCode, SideBar } from "./lib/components"
 
-  const getQR = (e: CustomEvent) => {
-    console.log(e.detail)
+  const getQR = async (e: CustomEvent) => {
+    const url = await QRUrl(e.detail)
+    return generateQR(url)
   }
 </script>
 
@@ -28,13 +29,24 @@
         </div>
     </header>
 
-    <section class="use-cases space">
+    <section id="use-cases" class="space">
         <h2 class="head">Use Cases</h2>
         <p class="sub-head">Explore the Versatility of QR Codes</p>
 
-        <div class="cases">
+        <div class="grid">
             {#each cases as content (content.id)}
                 <Block {content} />
+            {/each}
+        </div>
+    </section>
+
+    <section id="customization" class="space">
+        <h2 class="head">Customization Options</h2>
+        <p class="sub-head">Personalize your QR codes to make them stand out and match your need</p>
+
+        <div class="grid">
+            {#each options as content (content.id)}
+                <Block {content} invert={true} />
             {/each}
         </div>
     </section>
@@ -48,6 +60,8 @@
             <QrCode />
         </div>
     </section>
+
+    <p class="ps">PS: "QR" in QR Code means Quick Response😉</p>
 </main>
 <Footer />
 
@@ -117,7 +131,7 @@
         font-size: 2.5rem;
         margin-bottom: .7rem;
     }
-    .cases {
+    .grid {
         display: grid;
         gap: 1rem;
         margin-top: 2rem;
@@ -129,6 +143,10 @@
         display: flex;
         gap: 2rem;
     }
+    .ps {
+        font-size: .9rem;
+        margin-top: 1rem;
+    }
 
     @media (max-width: 768px) {
         header {
@@ -137,7 +155,7 @@
         header h1 {
             font-size: 2rem;
         }
-        .cases {
+        .grid {
             grid-template-columns: repeat(1, minmax(0, 1fr));
         }
         .generate {

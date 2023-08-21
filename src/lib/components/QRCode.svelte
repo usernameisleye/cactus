@@ -1,14 +1,14 @@
 <script>
   import { Download, Share } from "lucide-svelte"
-  let opaque = true
+  let opaque = false
 </script>
 
 <div class="qr-sect" class:opaque>
     <span class="wrap">
-        <img 
+        <!-- <img 
             src="/Logo.svg" 
             alt="code"
-        >
+        > -->
     </span>
 
     <div class="opts">
@@ -23,8 +23,8 @@
 
 <style>
     .qr-sect {
-        background: url("/icons/qr-code.svg") no-repeat center/20%;
-        opacity: 30%;
+        background: url("/Logo.svg") no-repeat center/60%;
+        opacity: 20%;
         flex-grow: 1;
         min-height: 30rem;
         position: relative;
