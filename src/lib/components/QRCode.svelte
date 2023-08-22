@@ -30,9 +30,9 @@
    // Share QR code function
   const share = (src: string) => {
     const data = {
-      src,
-      title: "Here's the QR code",
-      text: "Scan this QR code to access content"
+        title: "Here's the QR code",
+        text: "Scan this QR code to access content",
+        url: src,
     }
 
     navigator

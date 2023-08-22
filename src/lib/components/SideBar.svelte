@@ -20,7 +20,7 @@
     const dispatch = createEventDispatcher()
     const generate = () => {
         if(data === undefined || format === "") return
-        if(size === undefined) size = "100 x 100"
+        if(size === undefined) size = "250 x 250"
         bg = bg.substring(1)
         fore = fore.substring(1)
         size = size.replace(/\s+/g, "")
@@ -33,6 +33,7 @@
         format = ""
         bg = "#FFFFFF"
         fore = "#000000"
+        size = "250 x 250"
     }
 </script>
 
